@@ -315,12 +315,11 @@ class BusinessProject extends Model
     public function doRequestSyn() {
         return;
         //$ip = request()->server('SERVER_ADDR');
-        //if($ip != '111.230.143.238'){
-            //非正式环境 不同步数据 直接返回1  等到停掉旧oa之后再开启接口推送
+        //if(env('APP_ENV') == 'local'){
             //return ['code' => 1, 'message'=>'ok'];
         //}
-        // $urls = ['http://edmv3.mail-mall.com/frontend/oa_projects_receiver.php','http://120.31.134.57/cosdata/api.php?do=ReceiveProjects'];//正式环境
-        //$urls = ['http://edmv3.mail-mall.com/frontend/oa_projects_receiver_debug.php'];
+		//$urls = [env('V3_API_URL1'),env('V3_API_URL2')];
+        //$urls = [env('V3_API_URL_DEBUG')];
         //获取需要提交的客户
         $post_data = array();
         $post_data['projects'] = $this->doJsonList();
